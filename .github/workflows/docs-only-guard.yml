@@ -1,0 +1,47 @@
+name: Docs Only Guard
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  docs-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate changed files are docs-only
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+            HEAD="${{ github.event.pull_request.head.sha }}"
+            CHANGED="$(git diff --name-only "$BASE" "$HEAD")"
+          else
+            BEFORE="${{ github.event.before }}"
+            AFTER="${{ github.sha }}"
+            CHANGED="$(git diff --name-only "$BEFORE" "$AFTER")"
+          fi
+
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          if [ -z "$CHANGED" ]; then
+            echo "No changed files."
+            exit 0
+          fi
+
+          ALLOWED_REGEX='^(docs/|README\.md$|CONTRIBUTING\.md$|\.github/|\.gitignore$|\.gitattributes$|\.editorconfig$)'
+          INVALID="$(echo "$CHANGED" | grep -Ev "$ALLOWED_REGEX" || true)"
+
+          if [ -n "$INVALID" ]; then
+            echo "Found non-doc files:"
+            echo "$INVALID"
+            exit 1
+          fi
+
+          echo "Docs-only guard passed."

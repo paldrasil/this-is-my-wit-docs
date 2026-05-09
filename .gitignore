@@ -1,0 +1,15 @@
+# Ignore everything by default
+*
+
+# Allow docs and root docs entry
+!docs/
+!docs/**
+!README.md
+
+# Allow collaboration and repo config files
+!.gitignore
+!.gitattributes
+!.editorconfig
+!CONTRIBUTING.md
+!.github/
+!.github/**
