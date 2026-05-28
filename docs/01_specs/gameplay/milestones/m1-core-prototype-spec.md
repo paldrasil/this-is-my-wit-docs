@@ -22,11 +22,11 @@ Changelog:
 - Use this spec as the execution contract for M1 after the Unity implementation repository/location is confirmed.
 
 ## Checklist tasks
-- [ ] Init project
-- [ ] Use capsules for Tiger, buffalo, and player
-- [ ] Create simple map use TileWorldCreator
-- [ ] Grid movement for player/buffalo/tiger
-- [ ] Basic tiger FSM + vision/hearing detection
+- [x] Init project
+- [x] Use capsules for Tiger, buffalo, and player
+- [x] Create simple map use TileWorldCreator
+- [x] Grid movement for player/buffalo/tiger
+- [x] Basic tiger FSM + vision/hearing detection
 - [ ] Basic Win/Lose on one sample map
 
 ## Start gate

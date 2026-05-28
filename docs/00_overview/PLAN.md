@@ -1,11 +1,12 @@
 ---
 Status: Draft
 Owner: Design + Dev
-Last Updated: 2026-05-08
-Version: 0.3
+Last Updated: 2026-05-28
+Version: 0.4
 Changelog:
   - Added metadata frontmatter.
   - Standardized milestone and tech-spec references.
+  - Linked M3 milestone spec and updated milestone 3 scope.
 ---
 
 # PLAN - This is my wit
@@ -87,8 +88,9 @@ Back to index: [System index](./system_index.md)
   - Throw stone, drop bait, distance whistle, and lead/release all fully functional.
   - Tiger responds correctly to `Investigate`/`Consume`/`Chase`.
 - **M3 - Level design pass (1-2 weeks)**:
-  - Complete terrain object set (cover/risk/control).
-  - Build first 3-5 levels with increasing difficulty.
+  - Detailed spec: [M3 completion and release spec](../01_specs/gameplay/milestones/m3-completion-and-release-spec.md)
+  - Finalize win condition, objective tooltip, global whistle behavior, and grid-based hearing.
+  - Produce and validate a runnable WebGL build package.
 - **M4 - Feedback & polish (1 week)**:
   - Minimal UI (objectives, alerts, failure states).
   - Core VFX/SFX and readability pass.
